@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var child_process = require('child_process'),
+  Path = require('path');
+
+var ptr = Path.relative(process.cwd(), Path.join(__dirname, '..', 'scripts', 'allex-mocha-runner')),
+  args = [];
+var ar = child_process.spawn('allexrun', [ptr, process.argv[2]], {stdio:'inherit'});
+ar.on('close', function (code) {
+  process.exit(code);
+});

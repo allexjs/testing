@@ -1,0 +1,32 @@
+{
+  "name": "allextesting",
+  "version": "1.0.0",
+  "description": "AllexJS suite for testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "allex-mocha": "./commandline/allex-mocha"
+  },
+  "dependencies" : {
+    "mocha": "3.x",
+    "chai": "4.x",
+    "chai-as-promised": "7.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allexjs/testing.git"
+  },
+  "keywords": [
+    "ecosystem:AllexJS",
+    "testing",
+    "suite"
+  ],
+  "author": "Andrija Petrovic <andrija.hers@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allexjs/testing/issues"
+  },
+  "homepage": "https://github.com/allexjs/testing#readme"
+}
