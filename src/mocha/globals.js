@@ -5,6 +5,7 @@ var Mocha = require('mocha'),
   fs = require('fs');
 
 chai.use(chap);
+chai.should();
 
 function getGlobal () {
   if ('undefined' !== typeof window) {
@@ -51,16 +52,20 @@ setGlobal('setGlobal', setGlobal);
 setGlobal('getGlobal', getGlobalEntity);
 setGlobal('expect', chai.expect);
 
-function depName(dep) {
-  var sp = dep.split(':');
-  if (sp.length>2) {
-    return sp[1]+sp[2];
+function onModuleRecognized (args, dep, depindex, recognized) {
+  var modulename;
+  if (!lib.isVal(recognized)) {
+    return q.reject(new lib.Error('MODULE_NOT_RECOGNIZED', dep+' was not recognized as an AllexJS modules'));
   }
-  return sp[0]+sp[1];
+  modulename = lib.isString(recognized) ? recognized : recognized.modulename;
+  setGlobal(modulename, args[depindex]);
+  return q(true);
 }
 
 function depSetter (args, dep, depindex) {
-  setGlobal(depName(dep), args[depindex]);
+  return lib.moduleRecognition(dep).then(
+    onModuleRecognized.bind(null, args, dep, depindex)
+  );
 }
 
 function dependencySetter (dependencies) {
