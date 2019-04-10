@@ -75,9 +75,9 @@ function dependencySetter (dependencies) {
 }
 
 function loadMochaIntegration (modulename) {
-  var mp;
+  var mp, utils = require('./utils')(), modulepath;
   try {
-    require(Path.join(Path.dirname(require.resolve(modulename)), 'mochaintegration'));
+    require(Path.join(utils.findPathForModuleName(modulename), 'mochaintegration'));
   } catch(e) {
     console.error('Could not load', modulename, e);
   }
