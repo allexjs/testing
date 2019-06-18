@@ -10,10 +10,10 @@
     "allex-mocha": "./commandline/allex-mocha"
   },
   "dependencies": {
-    "mocha": "3.x",
-    "chai": "4.x",
-    "chai-as-promised": "7.x",
-    "allex_nodehelpersserverruntimelib": "1.x"
+    "mocha": "6.x",
+    "allex-chai-as-promised": "git+ssh://git@github.com/allextools/chai-as-promised",
+    "allex_nodehelpersserverruntimelib": "1.x",
+    "chai": "4.x"
   },
   "repository": {
     "type": "git",
