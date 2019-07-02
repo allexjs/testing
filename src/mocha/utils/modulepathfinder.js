@@ -26,12 +26,13 @@ function findPathForModuleName(modulename) {
   Node = require('./nodehelpers')();
   Fs = Node.Fs;
   Path = Node.Path;
-  var modulepath, cwd;
+  var modulepath, cwd = process.cwd();
   try {
     modulepath = require.resolve(modulename);
   } catch(ignore) {}
-  if (!modulepath) {
-    cwd = process.cwd();
+  if (modulepath) {
+    modulepath = Path.dirname(modulepath);
+  } else {
     modulepath = lookUpTheTreeNodeModules(modulename);
     process.chdir(cwd);
   }
