@@ -1,6 +1,6 @@
 {
   "name": "allextesting",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "AllexJS suite for testing",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "mocha": "6.x",
-    "allex-chai-as-promised": "git+ssh://git@github.com/allextools/chai-as-promised",
+    "chai-as-promised": "7.x",
     "allex_nodehelpersserverruntimelib": "1.x",
     "chai": "4.x"
   },

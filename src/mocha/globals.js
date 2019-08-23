@@ -1,6 +1,6 @@
 var Mocha = require('mocha'),
   chai = require('chai'),
-  chap = require('allex-chai-as-promised'),
+  chap = require('chai-as-promised'),
   Path = require('path'),
   fs = require('fs');
 
