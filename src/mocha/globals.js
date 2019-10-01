@@ -86,6 +86,7 @@ setGlobal('loadMochaIntegration', loadMochaIntegration);
 
 function loadClientSide (dependencies) {
   it ('Load Client Side Dependencies', function () {
+    this.timeout(300*lib.intervals.Second);
     return execlib.loadDependencies('client', dependencies, dependencySetter.bind(null, dependencies));
   });
 }
@@ -93,6 +94,7 @@ setGlobal('loadClientSide', loadClientSide);
 
 function loadServerSide (dependencies) {
   it ('Load Server Side Dependencies', function () {
+    this.timeout(300*lib.intervals.Second);
     return execlib.loadDependencies('server', dependencies, dependencySetter.bind(null, dependencies));
   });
 }
