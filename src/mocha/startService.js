@@ -1,22 +1,22 @@
 function createStartService (mochalib) {
   'use strict';
   /*
-   * prophash:
+   * propertyhash:
    * {
    *   modulename: String,
    *   instancename: String,
-   *   prophash: Object
+   *   propertyhash: Object
    *   pathtomodule: String|Array
    * }
    */
 
-  function startService (prophash) {
-    tryModuleName(prophash.modulename, prophash.pathtomodule, 0);
+  function startService (propertyhash) {
+    tryModuleName(propertyhash.modulename, propertyhash.pathtomodule, 0);
     return execlib.execSuite.start({
       service: {
-        modulename: prophash.modulename,
-        instancename: prophash.instancename,
-        prophash: prophash.prophash
+        modulename: propertyhash.modulename,
+        instancename: propertyhash.instancename,
+        propertyhash: propertyhash.propertyhash
       }
     })
   }

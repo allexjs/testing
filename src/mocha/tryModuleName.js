@@ -61,7 +61,10 @@ function createTryModuleName (mochalib) {
         throw e;
       }
       if (!(e.code==='MODULE_NOT_FOUND' && e.message.indexOf(modulename) >= 0)) {
-      throw e;
+        throw e;
+      }
+      if (!pathtomodule) {
+        throw e;
       }
       path = buildModulePath(pathtomodule, modulename);
       console.log('Going to npm link ', modulename, 'in', path);
